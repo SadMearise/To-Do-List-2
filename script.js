@@ -5,7 +5,7 @@ const button = document.querySelector('.add')
 todoList = [];
 
 if (localStorage.getItem('todo')) {
-    todoList = JSON.parse(localStorage.getItem('todo'))
+    todoList = JSON.parse(localStorage.getItem('todo'));
     displayMessages();
 }
 
@@ -17,7 +17,6 @@ button.addEventListener('click', element => {
         important: false,
         checked: false
     }
-
     todoList.push(newToDo)
 
     displayMessages();
@@ -28,7 +27,9 @@ button.addEventListener('click', element => {
 
 function displayMessages() {
     let displayMessage = '';
+
     if (todoList.length === 0) todo.innerHTML = ''
+
     todoList.forEach(function(item, index) {
         displayMessage += `
         <li>
@@ -36,7 +37,6 @@ function displayMessages() {
             <label for="item_${index}" class="${item.important ? 'important' : ''}">${item.todo}</label>
         </li>
         `
-
         todo.innerHTML = displayMessage
     })
 }
@@ -49,13 +49,12 @@ todo.addEventListener('change', function(event) {
             item.checked = !item.checked
             localStorage.setItem('todo', JSON.stringify(todoList))
         }
-        
     })
-    
 })
 
 todo.addEventListener('contextmenu', function(event) {
     event.preventDefault();
+
     todoList.forEach(function(item, index) {
         if (item.todo === event.target.innerHTML) {
             if (event.ctrlKey || event.metaKey) {
@@ -64,6 +63,7 @@ todo.addEventListener('contextmenu', function(event) {
             } else {
                 item.important = !item.important
             }
+
             displayMessages();
             localStorage.setItem('todo', JSON.stringify(todoList))
         }
