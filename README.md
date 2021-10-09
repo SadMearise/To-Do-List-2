@@ -1,4 +1,5 @@
 # To-Do-List-2
-Mark as important: right click on task
-Delete task: right click + ctrl
+### functionality
+Mark as important: right click on task<br/>
+Delete task: right click + ctrl<br/>
 Mark task completion: left click on checkbox
